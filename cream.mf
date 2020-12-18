@@ -1,6 +1,18 @@
 u#:=12/8pt#;
 define_pixels(u);
 
+font_size 8u#;
+font_slant 0;
+font_normal_space 4u#;
+font_normal_stretch 2u#;
+font_normal_shrink 1u#;
+font_x_height 5u#;
+font_quad 6u#;
+
+def slantpen =
+  pickup pencircle xscaled 1u yscaled 0.5u rotated 30;
+enddef;
+
 def forward_flick(expr p) =
   draw p..(p + (1u, 0.5u));
 enddef;
@@ -40,50 +52,50 @@ def left_line(expr h, top) =
   draw z1..z2; backward_flick(z1);
 enddef;
 
-beginchar(97, 4u#, 5u#, 0u#); "Lowercase a";  
-  pickup pencircle xscaled 50 yscaled 25 rotated 30;
+beginchar(97, 6u#, 5u#, 0u#); "Lowercase a";  
+  slantpen;
   c_shape;
   right_line(5u, 5u);
   labels(range 1 thru 7);
 endchar;
 
-beginchar(98, 4u#, 8u#, 0u#); "Lowercase b";  
-  pickup pencircle xscaled 50 yscaled 25 rotated 30;
+beginchar(98, 5u#, 8u#, 0u#); "Lowercase b";  
+  slantpen;
   backward_c_shape;
   left_line(8u, 8u);
   labels(range 4 thru 7);
 endchar;
 
-beginchar(99, 4u#, 5u#, 0u#); "Lowercase c";  
-  pickup pencircle xscaled 50 yscaled 25 rotated 30;
+beginchar(99, 5.5u#, 5u#, 0u#); "Lowercase c";  
+  slantpen;
   c_shape;
   labels(range 4 thru 7);
 endchar;
 
-beginchar(100, 4u#, 8u#, 0u#); "Lowercase d";  
-  pickup pencircle xscaled 50 yscaled 25 rotated 30;
+beginchar(100, 6u#, 8u#, 0u#); "Lowercase d";  
+  slantpen;
   c_shape;
   right_line(8u, 8u);
   labels(range 1 thru 7);
 endchar;
 
-beginchar(101, 4u#, 5u#, 0u#); "Lowercase e";  
-  pickup pencircle xscaled 50 yscaled 25 rotated 30;
+beginchar(101, 5.5u#, 5u#, 0u#); "Lowercase e";  
+  slantpen;
   c_ish_shape(0, 1);
   z3=(0, 1u);
   draw z3..z4;
   labels(range 1 thru 7);
 endchar;
 
-beginchar(112, 4u#, 5u#, 3u#); "Lowercase p";  
-  pickup pencircle xscaled 50 yscaled 25 rotated 30;
+beginchar(112, 5u#, 5u#, 3u#); "Lowercase p";  
+  slantpen;
   backward_c_shape;
   left_line(8u, 5u);
   labels(range 1 thru 7);
 endchar;
 
-beginchar(112, 4u#, 5u#, 3u#); "Lowercase q";  
-  pickup pencircle xscaled 50 yscaled 25 rotated 30;
+beginchar(113, 5u#, 5u#, 3u#); "Lowercase q";  
+  slantpen;
   c_shape;
   right_line(8u, 5u);
   labels(range 1 thru 7);
