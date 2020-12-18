@@ -23,7 +23,7 @@ enddef;
 def c_ish_shape(expr a, b) =
   z4=(4u,5u);
   z5=(0, 3u);
-  z6=(1u, 0);
+  z6=(2u, 0);
   z7=(4u,2u);
   draw z4..z5..z6..z7{(a,b)};
 enddef;
@@ -34,15 +34,19 @@ enddef;
 
 def backward_c_shape =
   z4=(0,  3u);
-  z5=(3.5u, 5u);
-  z6=(2.5u, 1u);
+  z5=(3u, 4.5u);
+  z6=(3u, 1u);
   z7=(0, 0);
   draw z4{up}..z5..z6..z7{left};
 enddef;
 
-def right_line(expr h, top) =
-  z1=(4u,top);
-  z2=(4u,top-h);
+def hook =
+  draw (4u, 5u){down}..(4u, 0u){down}..(0u, -3u);
+enddef;
+
+def right_line(expr x, h, top) =
+  z1=(x,top);
+  z2=(x,top-h);
   draw z1..z2; forward_flick(z2);
 enddef;
 
@@ -55,7 +59,7 @@ enddef;
 beginchar(97, 6u#, 5u#, 0u#); "Lowercase a";  
   slantpen;
   c_shape;
-  right_line(5u, 5u);
+  right_line(4u, 5u, 5u);
   labels(range 1 thru 7);
 endchar;
 
@@ -66,25 +70,47 @@ beginchar(98, 5u#, 8u#, 0u#); "Lowercase b";
   labels(range 4 thru 7);
 endchar;
 
-beginchar(99, 5.5u#, 5u#, 0u#); "Lowercase c";  
+beginchar(99, 5u#, 5u#, 0u#); "Lowercase c";  
   slantpen;
   c_shape;
   labels(range 4 thru 7);
 endchar;
 
-beginchar(100, 6u#, 8u#, 0u#); "Lowercase d";  
+beginchar(100, 5.5u#, 8u#, 0u#); "Lowercase d";  
   slantpen;
   c_shape;
-  right_line(8u, 8u);
+  right_line(4u, 8u, 8u);
   labels(range 1 thru 7);
 endchar;
 
-beginchar(101, 5.5u#, 5u#, 0u#); "Lowercase e";  
+beginchar(101, 5u#, 5u#, 0u#); "Lowercase e";  
   slantpen;
   c_ish_shape(0, 1);
-  z3=(0, 1u);
+  z3=(0.5u, 2u);
   draw z3..z4;
   labels(range 1 thru 7);
+endchar;
+
+beginchar(103, 5u#, 8u#, 3u#); "Lowercase g";
+  slantpen;
+  c_shape;
+  hook;
+endchar;
+
+beginchar(106, 5.5u#, 8u#, 3u#); "Lowercase j";
+  slantpen;
+  draw (4u, 7u);
+  hook;
+endchar;
+
+beginchar(108, 2u#, 8u#, 0); "Lowercase l";
+  slantpen;
+  right_line(0u, 8u, 8u);
+endchar;
+
+beginchar(111, 5.5u#, 5u#, 0); "Lowercase o";
+  slantpen;
+  draw (2u, 0)..(0u, 2.5u)..(2u, 5u)..(4u, 2.5u)..cycle;
 endchar;
 
 beginchar(112, 5u#, 5u#, 3u#); "Lowercase p";  
@@ -97,8 +123,14 @@ endchar;
 beginchar(113, 5u#, 5u#, 3u#); "Lowercase q";  
   slantpen;
   c_shape;
-  right_line(8u, 5u);
+  right_line(4u, 8u, 5u);
   labels(range 1 thru 7);
+endchar;
+
+beginchar(115, 5u#, 5u#, 3u#); "Lowercase s";  
+  slantpen;
+  draw (3u, 4.5u){(-0.7, 0.7)}..(0u, 4u)..(0, 3.5u)..
+       (3u, 2u)..(3u, 0.5u)..(0, 0.5u);
 endchar;
 
 end
