@@ -1,0 +1,77 @@
+u#:=12/8pt#;
+define_pixels(u);
+
+% Some common shapes.
+
+def c_ish_shape(expr a, b) =
+  z4=(4u,5u);
+  z5=(0, 3u);
+  z6=(1u, 0);
+  z7=(4u,2u);
+  draw z4..z5..z6..z7{(a,b)};
+enddef;
+
+def c_shape =
+  c_ish_shape(0.7, 0.7);
+enddef;
+
+def backward_c_shape =
+  z4=(0,  3u);
+  z5=(4u, 5u);
+  z6=(3u, 1u);
+  z7=(0, 0);
+  draw z4{up}..z5..z6..z7{left};
+enddef;
+
+def right_line suffix h =
+  z1=(4u,h);
+  z2=(4u,0);
+  z3=(5u,0.5u);
+  draw z1..z2; draw z2..z3;
+enddef;
+
+def left_line suffix h =
+  z1=(0,h);
+  z2=(0,0);
+  z3=(-1u,h-0.5u);
+  draw z1..z2; draw z1..z3;
+enddef;
+
+% The letters.
+
+beginchar(65, 4u#, 5u#, 0u#); "Lowercase a";  
+  pickup pencircle xscaled 50 yscaled 25 rotated 30;
+  c_shape;
+  right_line 5u;
+  labels(range 1 thru 7);
+endchar;
+
+beginchar(66, 4u#, 8u#, 0u#); "Lowercase b";  
+  pickup pencircle xscaled 50 yscaled 25 rotated 30;
+  backward_c_shape;
+  left_line 8u;
+  labels(range 4 thru 7);
+endchar;
+
+beginchar(67, 4u#, 5u#, 0u#); "Lowercase c";  
+  pickup pencircle xscaled 50 yscaled 25 rotated 30;
+  c_shape;
+  labels(range 4 thru 7);
+endchar;
+
+beginchar(68, 4u#, 8u#, 0u#); "Lowercase d";  
+  pickup pencircle xscaled 50 yscaled 25 rotated 30;
+  c_shape;
+  right_line 8u;
+  labels(range 1 thru 7);
+endchar;
+
+beginchar(69, 4u#, 5u#, 0u#); "Lowercase e";  
+  pickup pencircle xscaled 50 yscaled 25 rotated 30;
+  c_ish_shape(0, 1);
+  z3=(0, 1u);
+  draw z3..z4;
+  labels(range 3 thru 7);
+endchar;
+
+end
