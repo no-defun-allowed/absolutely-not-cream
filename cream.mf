@@ -1,4 +1,6 @@
-u#:=1pt#;
+mode_setup;
+
+u#:=pt#;
 define_pixels(u);
 
 font_size 11u#;
@@ -74,7 +76,7 @@ beginchar(97, 6u#, 5u#, 0u#); "Lowercase a";
   right_line(4.5u, 5u, 5u);
 endchar;
 
-beginchar(98, 5u#, 8u#, 0u#); "Lowercase b";  
+beginchar(98, 5.5u#, 8u#, 0u#); "Lowercase b";  
   slantpen;
   backward_c_shape;
   left_line(8u, 8u);
@@ -91,7 +93,7 @@ beginchar(100, 6u#, 8u#, 0u#); "Lowercase d";
   right_line(4.5u, 8u, 8u);
 endchar;
 
-beginchar(101, 5.5u#, 5u#, 0u#); "Lowercase e";  
+beginchar(101, 6u#, 5u#, 0u#); "Lowercase e";  
   slantpen;
   c_ish_shape(0, 1);
   z3=(1u, 1u);
@@ -140,7 +142,7 @@ beginchar(108, 2.5u#, 8u#, 0); "Lowercase l";
   right_line(0.5u, 8u, 8u);
 endchar;
 
-beginchar(109, 9.5u#, 5u#, 0); "Lowercase m";
+beginchar(109, 10u#, 5u#, 0); "Lowercase m";
   slantpen;
   left_line(5u, 5u);
   draw (0.5u, 2u){up}..(2.5u, 5u)..(4.5u, 2u){down}..(4.5u, 0){down};
@@ -170,7 +172,7 @@ endchar;
 beginchar(113, 5u#, 5u#, 3u#); "Lowercase q";  
   slantpen;
   c_shape;
-  right_line(4u, 8u, 5u);
+  right_line(4.5u, 8u, 5u);
   labels(range 1 thru 7);
 endchar;
 
@@ -211,6 +213,12 @@ beginchar(119, 8u#, 5u#, 0); "Lowercase w";
   draw (0.5u, 0u)..(3.5u, 2u);
   draw (3.5u, 5u)..(3.5u, 0u);
   v_shape(3.5u);
+endchar;
+
+beginchar(120, 5u#, 5u#, 0); "Lowercase x";
+  slantpen;
+  draw (0.5u, 0u)..(4.5u, 5u);
+  draw (4.5u, 0u)..(0.5u, 5u);
 endchar;
 
 beginchar(121, 5.5u#, 5u#, 3u#); "Lowercase y";
