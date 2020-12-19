@@ -1,237 +1,27 @@
 mode_setup;
 
-u#:=pt#;
+u#:=6/8pt#;
 define_pixels(u);
+
+x_height# := 5u#;
+define_pixels(x_height);
+
+tick_x := 1u;
+tick_y := 0.5u;
 
 font_size 11u#;
 font_slant 0;
 font_normal_space 3u#;
 font_normal_stretch 2u#;
 font_normal_shrink 1u#;
-font_x_height 5u#;
+font_x_height x_height#;
 font_quad 4u#;
 
 def slantpen =
   pickup pencircle xscaled 1u yscaled 0.5u rotated 30;
 enddef;
 
-def forward_flick(expr p) =
-  draw p..(p + (1u, 0.5u));
-enddef;
-def backward_flick(expr p) =
-  draw p..(p - (1u, 0.5u));
-enddef;
-
-def c_ish_shape(expr a, b) =
-  z4=(4.5u, 5u);
-  z5=(0.5u, 3u);
-  z6=(2.5u, 0);
-  z7=(4.5u, 2u);
-  draw z4..z5..z6..z7{(a,b)};
-enddef;
-
-def c_shape =
-  c_ish_shape(0.7, 0.7);
-enddef;
-
-def n_shape =
-  draw (0.5u, 2u){up}..(2.5u, 5u)..(4.5u, 2u){down}..(4.5u, 0){down};
-enddef;
-
-def u_shape =
-  draw (0.5u, 5u){down}..(0.5u, 3u){down}..(2.5u, 0)..(4.5u, 3u){up};
-enddef;
-
-def v_shape(expr x) =
-  draw (x, 0u){right}..(x+3.5u, 3u){up}..(x+3u, 5u);
-enddef;
-
-def backward_c_shape =
-  z4=(0.5u,  3u);
-  z5=(3.5u, 4.5u);
-  z6=(3.5u, 1u);
-  z7=(0.5u, 0);
-  draw z4{up}..z5..z6..z7{left};
-enddef;
-
-def hook(expr x) =
-  draw (x, 5u){down}..(x, 0u){down}..(x-3u, -3u);
-enddef;
-
-def right_line(expr x, h, top) =
-  z1=(x,top);
-  z2=(x,top-h);
-  draw z1..z2; forward_flick(z2);
-enddef;
-
-def left_line(expr h, top) =
-  z1=(0.5u,top);
-  z2=(0.5u,top-h);
-  draw z1..z2; backward_flick(z1);
-enddef;
-
-beginchar(97, 6u#, 5u#, 0u#); "Lowercase a";  
-  slantpen;
-  c_shape;
-  right_line(4.5u, 5u, 5u);
-endchar;
-
-beginchar(98, 5.5u#, 8u#, 0u#); "Lowercase b";  
-  slantpen;
-  backward_c_shape;
-  left_line(8u, 8u);
-endchar;
-
-beginchar(99, 6u#, 5u#, 0u#); "Lowercase c";  
-  slantpen;
-  c_shape;
-endchar;
-
-beginchar(100, 6u#, 8u#, 0u#); "Lowercase d";  
-  slantpen;
-  c_shape;
-  right_line(4.5u, 8u, 8u);
-endchar;
-
-beginchar(101, 6u#, 5u#, 0u#); "Lowercase e";  
-  slantpen;
-  c_ish_shape(0, 1);
-  z3=(1u, 1u);
-  draw z3..z4;
-endchar;
-
-beginchar(102, 4u#, 8u#, 3u#); "Lowercase f";
-  slantpen;
-  draw (1u, 0)..(1u, 5u){up}..(2.5u, 8u){right}..(3.5u, 8u);
-  draw (0, 5u)..(2u, 5u);
-endchar;
-
-beginchar(103, 6u#, 8u#, 3u#); "Lowercase g";
-  slantpen;
-  c_shape;
-  hook(4.5u);
-endchar;
-
-beginchar(104, 6u#, 8u#, 0); "Lowercase h";
-  slantpen;
-  left_line(8u, 8u);
-  n_shape;
-endchar;
-
-beginchar(105, 2.5u#, 6u#, 0u#); "Lowercase i";
-  slantpen;
-  draw(0.5u, 7u);
-  right_line(0.5u, 5u, 5u);
-endchar;
-
-beginchar(106, 2.5u#, 8u#, 3u#); "Lowercase j";
-  slantpen;
-  draw (0.5u, 7u);
-  hook(0.5u);
-endchar;
-
-beginchar(107, 5u#, 8u#, 0); "Lowercase k";
-  slantpen;
-  left_line(8u, 8u);
-  draw (0.5u, 2u)..(3.5u, 2u)..(3.5u, 4u)..(0.5u, 3u);
-  draw (0.5u, 2u)..(3.5u, 0);
-endchar;
-
-beginchar(108, 2.5u#, 8u#, 0); "Lowercase l";
-  slantpen;
-  right_line(0.5u, 8u, 8u);
-endchar;
-
-beginchar(109, 10u#, 5u#, 0); "Lowercase m";
-  slantpen;
-  left_line(5u, 5u);
-  draw (0.5u, 2u){up}..(2.5u, 5u)..(4.5u, 2u){down}..(4.5u, 0){down};
-  draw (4.5u, 2u){up}..(6.5u, 5u)..(8.5u, 2u){down}..(8.5u, 0){down};
-  forward_flick((8.5u, 0));
-endchar;
-
-beginchar(110, 6u#, 5u#, 0); "Lowercase n";
-  slantpen;
-  left_line(5u, 5u);
-  n_shape;
-  forward_flick((4.5u, 0));
-endchar;
-
-beginchar(111, 5u#, 5u#, 0); "Lowercase o";
-  slantpen;
-  draw (2u, 0)..(0u, 2.5u)..(2u, 5u)..(4u, 2.5u)..cycle;
-endchar;
-
-beginchar(112, 5u#, 5u#, 3u#); "Lowercase p";  
-  slantpen;
-  backward_c_shape;
-  left_line(8u, 5u);
-  labels(range 1 thru 7);
-endchar;
-
-beginchar(113, 5u#, 5u#, 3u#); "Lowercase q";  
-  slantpen;
-  c_shape;
-  right_line(4.5u, 8u, 5u);
-  labels(range 1 thru 7);
-endchar;
-
-beginchar(114, 5.5u#, 5u#, 0); "Lowercase r";
-  slantpen;
-  left_line(5u, 5u);
-  draw (0.5u, 2u){up}..(2.5u, 5u){right}..(4.5u,4u);
-endchar;
-
-beginchar(115, 4.5u#, 5u#, 3u#); "Lowercase s";  
-  slantpen;
-  draw (3u, 4.5u){(-0.7, 0.7)}..(0u, 4u)..(0, 3.5u)..
-       (3u, 2u)..(3u, 0.5u)..(0, 0.5u);
-endchar;
-
-beginchar(116, 3u#, 5u#, 3u#); "Lowercase t";  
-  slantpen;
-  draw (0u, 5u)..(2u, 5u);
-  right_line(1u, 6u, 6u);
-endchar;
-
-beginchar(117, 6u#, 5u#, 0); "Lowercase u";
-  slantpen;
-  right_line(4.5u, 5u, 5u);
-  u_shape;
-  forward_flick((4.5u, 0));
-endchar;
-
-beginchar(118, 5u#, 5u#, 0); "Lowercase v";
-  slantpen;
-  left_line(5u, 5u);
-  v_shape(0.5u);
-endchar;
-
-beginchar(119, 8u#, 5u#, 0); "Lowercase w";
-  slantpen;
-  left_line(5u, 5u);
-  draw (0.5u, 0u)..(3.5u, 2u);
-  draw (3.5u, 5u)..(3.5u, 0u);
-  v_shape(3.5u);
-endchar;
-
-beginchar(120, 5u#, 5u#, 0); "Lowercase x";
-  slantpen;
-  draw (0.5u, 0u)..(4.5u, 5u);
-  draw (4.5u, 0u)..(0.5u, 5u);
-endchar;
-
-beginchar(121, 5.5u#, 5u#, 3u#); "Lowercase y";
-  slantpen;
-  u_shape;
-  hook(4.5u);
-endchar;
-
-beginchar(122, 5.5u#, 5u#, 3u#); "Lowercase z";
-  slantpen;
-  draw (0.5u, 5u)..(5u, 5u);
-  draw (5u, 5u)..(0.5u, 0);
-  draw (0.5u, 0)..(5u, 0);
-endchar;
+input downcase;
+input symbols;
 
 end

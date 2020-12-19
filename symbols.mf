@@ -1,0 +1,26 @@
+def apostrophe(expr x, y) =
+  draw (x+1u, y){down}..(x+1u, y-1u)..(x+0u, y-2u);
+  draw (x+0.5u, y)..(1u, y);
+enddef;
+
+beginchar(39, 2u#, 8u#, 0u#); "Apostrophe";
+  slantpen;
+  apostrophe(0, 8u);
+endchar;
+
+beginchar(44, 2u#, 3u#, 2u#); "Comma";
+  slantpen;
+  apostrophe(0, 0u);
+endchar;
+
+beginchar(45, 3u#, x_height#, 0u#); "Hyphen";
+  slantpen;
+  draw (0u, x_height*1/2)..(3u, x_height*1/2);
+endchar;
+
+beginchar(63, 5u#, 8u#, 0u#); "Question mark";
+  slantpen;
+  draw (0.5u, x_height)..(1.5u, 8u)..(3.5u, x_height)
+       ..(1.5u, x_height-2u){down}..(1.5u, x_height/2);
+  draw (1.5u, 0.5u);
+endchar;
