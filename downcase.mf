@@ -5,16 +5,12 @@ def backward_flick(expr p) =
   draw p..(p - (tick_x, tick_y));
 enddef;
 
-def c_ish_shape(expr a, b) =
-  z4=(4.5u, x_height);
-  z5=(0.5u, x_height*3/4);
-  z6=(2.5u, 0);
-  z7=(4.5u, x_height/2);
-  draw z4..z5..z6..z7{(a,b)};
-enddef;
-
 def c_shape =
-  c_ish_shape(0.7, 0.7);
+  z4=(4.5u, x_height*3/4);
+  z5=(3u, x_height);
+  z6=(2u, 0);
+  z7=(4.5u, x_height*c_curl_height);
+  draw z4..z5..z6..z7;
 enddef;
 
 def n_shape(expr x) =
@@ -79,7 +75,7 @@ endchar;
 
 beginchar(101, 5.5u#, x_height#, 0u#); "Lowercase e";  
   slantpen;
-  c_ish_shape(0, 1);
+  c_shape;
   z3=(1u, 1u);
   draw z3..z4;
 endchar;
@@ -192,7 +188,7 @@ endchar;
 beginchar(119, 8.5u#, x_height#, 0); "Lowercase w";
   slantpen;
   left_line(x_height, x_height);
-  draw (0.5u, 0u)..(3.5u, x_height);
+  draw (0.5u, 0u)..(3.5u, x_height/2);
   draw (3.5u, x_height)..(3.5u, 0u);
   v_shape(3.5u);
 endchar;

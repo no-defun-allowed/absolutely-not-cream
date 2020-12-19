@@ -9,6 +9,10 @@ define_pixels(x_height);
 tick_x := 1u;
 tick_y := 0.5u;
 
+% The height (a fraction of x_height) at which the c curls back up.
+% 1/4, 3/8 and 1/2 could all be justified.  
+c_curl_height := 3/8;
+
 font_size 11u#;
 font_slant 0;
 font_normal_space 3u#;
